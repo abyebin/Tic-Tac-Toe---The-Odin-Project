@@ -1,0 +1,97 @@
+:root {
+  --main-color: #ffc93c;
+  --secondary-color: #86e5ff;
+  --dark-color: #000;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: aliceblue;
+}
+
+.main {
+  background-color: var(--main-color);
+  width: 100%;
+  height: 100vh;
+
+  display: grid;
+  grid-template: 1fr/ 1fr 3fr;
+}
+
+.left {
+  background-color: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: cursive;
+}
+
+.right {
+  background-color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-area {
+  background-color: var(--dark-color);
+  min-width: 600px;
+  min-height: 600px;
+
+  border: 10px solid var(--main-color);
+
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+.game-box {
+  display: flex;
+  border: 2px solid var(--secondary-color);
+  font-size: 100px;
+
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.win{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(15, 2, 2, 0.5);
+  z-index: 99;
+
+}
+
+.textDiv{
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.winText{
+  color: var(--main-color);
+  font-size: 6rem;
+
+  animation: winner 0.2s infinite;
+  animation-direction: alternate
+}
+
+@keyframes winner{
+  from {color: var(--main-color) ;}
+  to {color: var(--secondary-color);}
+}
+
+.players h1{
+  position: absolute;
+  left: 10px;
+  color: rgba(187, 107, 107,0)
+}
+
+.players .turn{
+  color: red;
+}
