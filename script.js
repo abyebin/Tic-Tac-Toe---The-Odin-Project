@@ -3,7 +3,7 @@ const box = document.querySelectorAll('.game-box');
 const win = document.getElementById('winner');
 const playerX = document.querySelector('.players h1:first-child');
 const playerO = document.querySelector('.players h1:last-child');
-const reset  = document.getElementById('reset');
+const reset = document.getElementById('reset');
 
 const player1 = 'x';
 const player2 = 'o';
@@ -13,7 +13,7 @@ let gameOver = false;
 
 for (let i = 0; i < box.length; i++) {
   box[i].addEventListener('click', function () {
-    console.log(currentPlayer)
+    console.log(currentPlayer);
     // console.log(`box${i + 1}`);
 
     if (gameOver) {
@@ -51,45 +51,38 @@ function winnerDisplay() {
   winText.textContent = 'Game Over';
   winDiv.appendChild(winText);
 
-
-
-  if((winText.textContent === "Game Over") && (currentPlayer == "x")){
+  if (winText.textContent === 'Game Over' && currentPlayer == 'x') {
     const winText2 = document.createElement('h1');
     winText2.classList.add('winText');
-    winText2.textContent = 'Player 2 Won the Game'
+    winText2.textContent = 'Player 2 Won the Game';
     winDiv.appendChild(winText2);
-  }
-  else if((winText.textContent === "Game Over") && (currentPlayer == "o")){
+  } else if (winText.textContent === 'Game Over' && currentPlayer == 'o') {
     const winText2 = document.createElement('h1');
     winText2.classList.add('winText');
-    winText2.textContent = 'Player 1 Won the Game'
+    winText2.textContent = 'Player 1 Won the Game';
     winDiv.appendChild(winText2);
   }
 
-  console.log(currentPlayer)
-
-
+  console.log(currentPlayer);
 }
 
 function tieDisplay() {
-    win.classList.add('win');
-    const winDiv = document.createElement('div');
-    winDiv.classList.add('textDiv');
-    win.appendChild(winDiv);
-  
-    const winText = document.createElement('h1');
-    winText.classList.add('winText');
-  
-    winText.textContent = 'Game Over';
-    winDiv.appendChild(winText);
+  win.classList.add('win');
+  const winDiv = document.createElement('div');
+  winDiv.classList.add('textDiv');
+  win.appendChild(winDiv);
 
-    const winText2 = document.createElement('h1');
-    winText2.classList.add('winText');
-    winText2.textContent = 'Tie'
-    winDiv.appendChild(winText2);
-  
-  
-  }
+  const winText = document.createElement('h1');
+  winText.classList.add('winText');
+
+  winText.textContent = 'Game Over';
+  winDiv.appendChild(winText);
+
+  const winText2 = document.createElement('h1');
+  winText2.classList.add('winText');
+  winText2.textContent = 'Tie';
+  winDiv.appendChild(winText2);
+}
 
 function winner() {
   //row
@@ -178,6 +171,6 @@ function winner() {
   }
 }
 
-reset.addEventListener('click',function(){
-    window.location.reload()
-})
+reset.addEventListener('click', function () {
+  window.location.reload();
+});
