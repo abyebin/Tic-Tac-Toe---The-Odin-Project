@@ -9,7 +9,7 @@
   margin: 0;
   padding: 0;
 }
-.title{
+.title {
   color: var(--dark-color);
   font-family: cursive;
   text-decoration: underline;
@@ -33,7 +33,7 @@
   text-align: justify;
   align-items: center;
   justify-content: center;
-  font-family: cursive,sans-serif;
+  font-family: cursive, sans-serif;
 }
 
 .right {
@@ -44,7 +44,7 @@
   align-items: center;
   justify-content: center;
 }
-#reset{
+#reset {
   width: 100px;
   height: 35px;
   background-color: var(--main-color);
@@ -52,7 +52,7 @@
   border-radius: 5px;
   z-index: 999;
 }
-#reset:hover{
+#reset:hover {
   background-color: var(--buttonBack);
   cursor: pointer;
 }
@@ -78,17 +78,16 @@
   color: var(--main-color);
 }
 
-.win{
+.win {
   width: 100%;
   height: 100vh;
   position: absolute;
   background-color: rgba(19, 1, 1, 0.8);
   text-shadow: 3px 3px 10px white;
   z-index: 99;
-
 }
 
-.textDiv{
+.textDiv {
   width: 100%;
   height: 100vh;
 
@@ -97,30 +96,33 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-
 }
 
-.winText{
+.winText {
   color: var(--main-color);
   font-size: 6rem;
 
   animation: winner 0.2s infinite;
-  animation-direction: alternate
+  animation-direction: alternate;
 }
 
-@keyframes winner{
-  from {color: var(--main-color) ;}
-  to {color: var(--secondary-color);}
+@keyframes winner {
+  from {
+    color: var(--main-color);
+  }
+  to {
+    color: var(--secondary-color);
+  }
 }
 
-.players h1{
+.players h1 {
   position: relative;
   top: 20%;
   left: 10px;
-  color: rgba(255, 255, 255,0.3);
+  color: rgba(255, 255, 255, 0.3);
 }
 
-.players .turn{
+.players .turn {
   color: red;
   text-shadow: 2px 1px 3px black;
 }
