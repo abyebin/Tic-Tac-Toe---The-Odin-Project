@@ -3,16 +3,18 @@ const box = document.querySelectorAll('.game-box');
 const win = document.getElementById('winner');
 const playerX = document.querySelector('.players h1:first-child');
 const playerO = document.querySelector('.players h1:last-child');
+const reset  = document.getElementById('reset');
 
 const player1 = 'x';
-const player2 = 'O';
+const player2 = 'o';
 let currentPlayer = player1;
 
 let gameOver = false;
 
 for (let i = 0; i < box.length; i++) {
   box[i].addEventListener('click', function () {
-    console.log(`box${i + 1}`);
+    console.log(currentPlayer)
+    // console.log(`box${i + 1}`);
 
     if (gameOver) {
       return;
@@ -45,15 +47,49 @@ function winnerDisplay() {
 
   const winText = document.createElement('h1');
   winText.classList.add('winText');
-  if (currentPlayer === 'o') {
-    currentPlayer = 'Player 2';
-  } else if( currentPlayer === "x"){
-    currentPlayer = "Player 1"
+
+  winText.textContent = 'Game Over';
+  winDiv.appendChild(winText);
+
+
+
+  if((winText.textContent === "Game Over") && (currentPlayer == "x")){
+    const winText2 = document.createElement('h1');
+    winText2.classList.add('winText');
+    winText2.textContent = 'Player 2 Won the Game'
+    winDiv.appendChild(winText2);
+  }
+  else if((winText.textContent === "Game Over") && (currentPlayer == "o")){
+    const winText2 = document.createElement('h1');
+    winText2.classList.add('winText');
+    winText2.textContent = 'Player 1 Won the Game'
+    winDiv.appendChild(winText2);
   }
 
-  winText.textContent = 'Winner ' + currentPlayer;
-  winDiv.appendChild(winText);
+  console.log(currentPlayer)
+
+
 }
+
+function tieDisplay() {
+    win.classList.add('win');
+    const winDiv = document.createElement('div');
+    winDiv.classList.add('textDiv');
+    win.appendChild(winDiv);
+  
+    const winText = document.createElement('h1');
+    winText.classList.add('winText');
+  
+    winText.textContent = 'Game Over';
+    winDiv.appendChild(winText);
+
+    const winText2 = document.createElement('h1');
+    winText2.classList.add('winText');
+    winText2.textContent = 'Tie'
+    winDiv.appendChild(winText2);
+  
+  
+  }
 
 function winner() {
   //row
@@ -136,9 +172,12 @@ function winner() {
     box[7].textContent !== '' &&
     box[8].textContent !== ''
   ) {
-    currentPlayer = 'Tie';
+    // currentPlayer = 'Tie';
     gameOver = true;
-    winnerDisplay();
+    tieDisplay();
   }
 }
-console.log(box[0]);
+
+reset.addEventListener('click',function(){
+    window.location.reload()
+})
